@@ -1,0 +1,353 @@
+<html>
+<head>
+	<title>Welcome</title>
+  
+  <!-- GOOGLE MAPS API -->
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script>
+    function initialize() {
+      var mapCanvas = document.getElementById('map');
+      var storeLatLang = new google.maps.LatLng(40.641542, -73.936557);
+      var mapOptions = {
+        center: storeLatLang,
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.SATTELLITE,
+        backgroundColor: "white",
+        mapMarker: true
+      };
+      
+      // global so that it can be accessed and refreshed when location section loads
+      map = new google.maps.Map(mapCanvas, mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: map.getCenter(),
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1,
+          strokeWeight: 20,
+          fillColor: 'black',            
+          fillOpacity: 1,
+          scale: 4
+        },
+        map: map
+      });
+
+      var styles = [{ "featureType" :"landscape",
+                      "elementType" :"geometry.fill",
+                      "stylers"     :[{"color":"#d3d3d3"}]},
+                    { "featureType" :"landscape",
+                      "elementType" :"geometry.stroke",
+                      "stylers"     :[{"color":"#ffffff"}]},
+                    { "featureType" :"poi",
+                      "elementType" :"labels.icon",
+                      "stylers"     :[{"saturation":-96}]}
+                    ];
+      
+      map.setOptions({styles: styles});
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);    
+  </script>
+  
+  <!-- CUSTOM FONTS via GOOGLE FONTS -->
+  <link href='http://fonts.googleapis.com/css?family=Trade+Winds|Iceland|Expletus+Sans:700' rel='stylesheet' type='text/css'>
+  
+<!-- CSS (to be moved to separate file) -->
+<style>	
+html, body, div, span, 
+article, section, header, footer,
+table, tr, th, td,
+p, a {
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+body {
+  font-size: 20px;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+body {
+	background: black;
+	background: url("bground.jpg");
+	background-size: cover;
+	color:white;
+  font-family: sans-serif;
+}
+
+#main {
+	background: black;
+	background-color:rgba(0, 0, 0, 0.5);
+	height: 100%;
+	margin: auto;
+	padding: 0px 100px 0px 100px;
+	width: 1000px;
+	z-index: -2;
+}
+
+#right, #left {
+	background: none;
+	display: inline-block;
+	height: 75%;
+	margin: auto;
+  margin-top: 10%;
+	vertical-align:top;
+	width: 48%;
+}
+
+#left {
+	text-align: left;
+}
+
+#site-name {
+  font-family: 'Trade Winds', sans-serif;
+	font-size: 60px;
+}
+
+#right {
+
+}
+
+h1 {
+  font-family: 'Iceland', sans-serif;
+}
+
+.btn {
+
+}
+
+button {
+	background: none;
+	border: 2px solid white;
+	border-top: none;
+	color: white;
+	display: block;
+  font-family: 'Iceland', sans-serif;
+  font-size: 30px;
+	outline: none;
+	overflow:hidden;
+	padding: 5%;
+	position: relative;
+	width: 80%;
+	z-index: 1;
+}
+
+button:first-child {
+	border-top: 2px solid white;
+}
+
+button:after {
+	background: white;
+	content: "";
+	height: 100%;
+	left: 50%;
+	opacity:0;
+	position: absolute;
+	top: 0%;
+	transform: skew(45deg, 0deg) ;
+	-webkit-transform: skew(45deg, 0deg) ;
+	-moz-transform: skew(45deg, 0deg) ;
+	-o-transform: skew(45deg, 0deg) ;
+	-ms-transform: skew(45deg, 0deg) ;
+	transition: 0.5s;
+	transition-timing-function: ease;
+	width: 0%;
+	z-index: -1;
+}
+
+button:hover:after{
+	left: 0%;
+	opacity:1;
+	width:100%;
+}
+
+button:active{
+  background-color: rgba(127, 65, 52, 0.9)
+}
+
+button:active:after{
+	left: 0%;
+	width:100%;
+	opacity:1;
+}
+
+button:hover, button:active {
+	color: black;
+  cursor: pointer;
+}
+
+section {
+	background-color: rgba(127, 65, 52, 0.9);
+	border-radius: 10px;
+  display: none;
+  height: 100%;
+  line-height: 200%;
+	padding: 10px 30px 10px 30px;
+  width: 90%;
+}
+
+.center {
+  text-align: center;
+}
+
+#statement {
+  line-height: 125%;
+  padding-bottom: 10px;
+}
+
+#map {
+  height: 60%;
+  margin: 0px;
+  padding: 0px;
+}
+
+th {
+  text-align: right;
+  padding-right: 10px;
+}
+
+td {
+  padding-bottom: 10px;
+}	
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+	background-color:rgba(0, 0, 0, 0.7);
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: 'Iceland', sans-serif;
+  padding-bottom: 3px;
+  color: rgb(127, 65, 52);
+  letter-spacing: 2px;
+  z-index: 3;
+}	
+
+footer > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.divider {
+  padding: 0px 20px 0px 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  #main {
+    padding: 0px 50px 0px 50px;
+  	width: auto;
+  }
+  
+  #left {
+    margin-top: 5%;
+  }
+  
+  #site-name {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #site-name {
+    font-size: 45px;
+  }
+  
+  #about, #location {
+    font-size: 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="main">
+	<div id="left">
+		<div id="site-name">Murry's<br>True Value<br>Hardware</div>
+		<nav>
+			<button onclick="displaySection('about')" class="btn btn-about">About</button>
+			<button onclick="displaySection('contact')" class="btn btn-contact">Contact</button>
+			<button onclick="displaySection('location')" class="btn btn-location">Location</button>
+			<button onclick="displaySection('hours')" class="btn btn-hours">Store Hours</button>
+		</nav>
+	</div>
+	<div id="right">
+		<section id="about">
+		<h1>About Us</h1>
+    <p id="statement">Murry's True Value Hardware is a family owned small business, serving our local community for over 20 years.</p>
+		<p>Come visit us at</p>
+    <p class="center">4214 Avenue D</p>
+    <p class="center">Brooklyn NY, 11203</p>
+    <p>We're open</p>
+    <p class="center">Mon - Sat : 9am - 6:30pm</p>
+    <p>Call us at (718) 629-9555</p>
+    <p>Fax us at (718) 629-9666</p>
+		</section>
+		<section id="contact">
+			<h1>Contact Us</h1>
+			<div id="telephone">
+				<p>TEL <a id="tele-num" href="tel://1-718-629-9555">(718) 629-9555</a></p>
+				<p>FAX (718) 629-9556</p>
+			</div>
+		</section>
+		<section id="location">
+			<h1>Visit Us</h1>
+			<div class="section-content">
+				<p>4214 Avenue D</p>
+				<p>Brooklyn, NY 11203</p>
+        <p id="map"></p>
+			</div>
+		</section>
+		<section id="hours">
+			<h1>Store Hours</h1>
+			<div class="section-content">
+				<table>
+				  <tr><th class="day">Mon</th><td class="hour">9:00am - 6:30pm</td></tr>
+				  <tr><th class="day">Tue</th><td class="hour">9:00am - 6:30pm</td></tr>
+				  <tr><th class="day">Wed</th><td class="hour">9:00am - 6:30pm</td></tr>
+				  <tr><th class="day">Thur</th><td class="hour">9:00am - 6:30pm</td></tr>
+				  <tr><th class="day">Fri</th><td class="hour">9:00am - 6:30pm</td></tr>
+				  <tr><th class="day">Sat</th><td class="hour">9:00am - 6:30pm</td></tr>
+				  <tr><th class="day">Sun</th><td class="hour">CLOSED</td></tr>
+				</table>
+			</div>
+    </section>  
+	</div>
+  <footer>
+    <a href="https://www.google.com/maps/dir//Murry%27s+True+Value+Hardware,+4214+Avenue+D,+Brooklyn,+NY+11203/@40.64145,-73.936507,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89c25b5870f766f3:0x7c060d9bcd50f5a8!2m2!1d-73.936507!2d40.64145">4214 Avenue D, Brooklyn NY 11203</a>
+    <span class="divider">&middot;</span>718 629-9555<span class="divider">&middot;</span>
+    <a href="http://ww3.truevalue.com/murrystruevalue/Home.aspx">truevalue.com</a>
+  </footer>
+</div>
+</body>
+
+<script>
+function displaySection(el) {
+  var el_section = document.getElementById(el);
+  var display_prop = el_section.style.display;
+
+  var sections = document.getElementsByTagName("section");
+  for (var i = 0; i < sections.length; i++) { 
+    sections[i].style.display = "none";
+  }
+
+  el_section.style.display = "block";
+
+  if (el == "location"){
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(new google.maps.LatLng(40.641542, -73.936557));
+  }
+}
+</script>
+</html>
