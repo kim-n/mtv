@@ -130,10 +130,27 @@ button:hover, button:active {
   cursor: pointer;
 }
 
-section {
+.shift-top {
+  position: absolute;
+  top: -200%;
+}
+
+.shift-bottom {
+  position: absolute;
+  top: 100%;
+}
+
+.focus {
+  position: relative;
+  top: 0;
+	transition: 0.3s;
+	transition-timing-function: ease;
+}
+
+section  {
+  display: block;
 	background-color: rgba(127, 65, 52, 0.9);
 	border-radius: 10px;
-  display: none;
   height: 100%;
   line-height: 200%;
 	padding: 10px 30px 10px 30px;
