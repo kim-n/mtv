@@ -26,7 +26,7 @@ body {
 	background: url("bground.jpg");
 	background-size: cover;
 	color: white;
-  font-family: sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 #main {
@@ -130,16 +130,14 @@ button:hover, button:active {
   cursor: pointer;
 }
 
+/* Used when section slides in from
+   top of screen as opposed to 
+   bottom of screen which is default */
 .shift-top {
-  position: absolute;
   top: -200%;
 }
 
-.shift-bottom {
-  position: absolute;
-  top: 100%;
-}
-
+/* The section that user clicked on */
 .focus {
   position: relative;
   top: 0;
@@ -147,14 +145,28 @@ button:hover, button:active {
 	transition-timing-function: ease;
 }
 
+/* Needed so that when section[position]: absolute, 
+   the section height and width doesn't grow to 
+   height and width of the body */
+#section-wraper {
+  height: 100%;
+  width: 90%;
+  position: relative;
+}
+
+/* By default, sections are displayed 
+   but shifted off screen to make
+   sliding in and out of screen simplier */
 section  {
   display: block;
 	background-color: rgba(127, 65, 52, 0.9);
 	border-radius: 10px;
-  height: 100%;
+  height: inherit;
   line-height: 200%;
 	padding: 10px 30px 10px 30px;
-  width: 90%;
+  width: inherit;
+  position: absolute;
+  top: 200%;
 }
 
 .center {
@@ -227,83 +239,5 @@ footer > a, #contact a {
   
   #about, #location {
     font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 600px), screen and (max-device-width: 450px), screen and (max-device-height: 450px)  {
-  
-  body {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  
-  table {
-    margin: auto;
-  }
-  
-  #contact td{
-    padding-right: 30px;
-  }
-  
-  #location > .section-content {
-    padding-left: 30px;
-  }
-  
-  button {
-    display: none;
-  }
-  
-  #right, #left {
-    width: 100%;
-    height: auto;
-  }
-  
-  section {
-    display: block;
-    height: auto;
-  	padding: 5px 10px 5px 10px;
-    margin-bottom: 10px;
-    width: 97%;
-  }
-  
-  #site-name {
-    text-align: center;
-  }
-  
-  #site-name > br {
-    display: none;
-  }
-
-  
-  #about {
-    display: none;
-  }
-  
-  #contact tr {
-    display: inline-block;
-    margin: auto;
-  }
-  
-  #location {
-    font-size: 20px;
-  }
-  
-  footer {
-    position: inherit;
-  }
-}
-
-@media screen and (max-device-width: 450px), screen and (max-device-height: 450px) {
-
-  #site-name {
-    font-size: 70px;
-  }
-
-  body, #location {
-    font-size: 38px;
-  }
-  
-  #main {
-    height: auto;
   }
 }

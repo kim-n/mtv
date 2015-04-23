@@ -1,0 +1,59 @@
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+table {
+  margin: auto;
+}
+
+#contact td{
+  padding-right: 30px;
+}
+
+#location > .section-content {
+  padding-left: 30px;
+}
+
+button {
+  display: none;
+}
+
+#right, #left {
+  width: 100%;
+  height: auto;
+}
+
+section {
+  display: block;
+  height: auto;
+	padding: 5px 10px 5px 10px;
+  margin-bottom: 10px;
+  width: 97%;
+}
+
+#site-name {
+  text-align: center;
+}
+
+#site-name > br {
+  display: none;
+}
+
+
+#about {
+  display: none;
+}
+
+#contact tr {
+  display: inline-block;
+  margin: auto;
+}
+
+#location {
+  font-size: 20px;
+}
+
+footer {
+  position: inherit;
+}
