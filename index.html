@@ -136,17 +136,25 @@
     var cur_section = $(".focus"); // undefined, about, contact, location, hours
     var cur_section_id = cur_section.attr('id');
 
+    // remove focus from current section shift-top css class if present
+    // in preparation for adding focus to a new section
     if (cur_section_id !== undefined){
+      // if current_section is same as new_section, no action necessary
+      if(cur_section_id === new_section_id){
+        return;
+      }
       cur_section.removeClass('focus').removeClass('shift-top');
     }
-    // if cur_section_id, cur_section_id > new_section_id == false
+    // if cur_section_id is undefined, cur_section_id > new_section_id == false
     if (cur_section_id > new_section_id) {
       new_section.addClass('shift-top');
     }
+    // wait 10 milliseconds to ensure (if necessary) section is moved to 
+    // top by prev statement before sliding into position
     setTimeout(function(){
       new_section.addClass('focus');
     }, 10);
-  
+    // fix: when google map changes size, doesn't automatically refocus center
     if (new_section_id == "location"){
       google.maps.event.trigger(map, "resize");
       map.setCenter(new google.maps.LatLng(40.641542, -73.936557));

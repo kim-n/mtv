@@ -141,7 +141,7 @@ button:hover, button:active {
 .focus {
   position: relative;
   top: 0;
-	transition: 0.3s;
+	transition: 0.5s;
 	transition-timing-function: ease;
 }
 
