@@ -26,7 +26,7 @@ body {
 	background: url("bground.jpg");
 	background-size: cover;
 	color: white;
-  font-family: Verdana, Geneva, sans-serif;
+  font-family:  'Iceland', Verdana, sans-serif;
 }
 
 #main {
@@ -162,10 +162,10 @@ section  {
   display: block;
 	background-color: rgba(127, 65, 52, 0.9);
 	border-radius: 10px;
-  height: inherit;
+  height: auto;
   line-height: 200%;
 	padding: 10px 30px 10px 30px;
-  width: inherit;
+  width: auto;
   position: absolute;
   top: 200%;
 }
@@ -180,7 +180,7 @@ section  {
 }
 
 #map {
-  height: 60%;
+  height: 55%;
   margin: 0px;
   padding: 0px;
 }
@@ -224,7 +224,7 @@ footer > a, #contact a {
   	width: auto;
   }
   
-  #left {
+  #left, #right {
     margin-top: 5%;
   }
   

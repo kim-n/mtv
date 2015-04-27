@@ -156,8 +156,11 @@
     }, 10);
     // fix: when google map changes size, doesn't automatically refocus center
     if (new_section_id == "location"){
-      google.maps.event.trigger(map, "resize");
-      map.setCenter(new google.maps.LatLng(40.641542, -73.936557));
+      // wait 10 milliseconds to ensure section becomes in focus before map refresh
+      setTimeout(function(){
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(new google.maps.LatLng(40.641542, -73.936557));
+      }, 10);
     }
   }
 </script>
