@@ -96,14 +96,15 @@
         </table>
   			</div>
   		</section>
-  		<section id="location">
+  		<section id="location" class="focus">
   			<h1>Visit Us</h1>
   			<div class="section-content">
   				<p>4214 Avenue D</p>
   				<p>Brooklyn, NY 11203</p>
   			</div>
+        <div id="map-wraper" onclick="expandMap()">
         <p id="map"></p>
-      
+        </div>
   		</section>
   		<section id="hours">
   			<h1>Store Hours</h1>
@@ -131,6 +132,22 @@
 <!-- Zepto.js [JavaScript Library, jQuery alternative] -->
 <script src=zepto.min.js></script>
 <script>
+
+  $("#map").click(function(e) {
+    console.log("map clicked")
+    if ($("#map-wraper").hasClass("wraper-expanded")) {
+      e.stopPropagation();
+    }
+  });
+  
+  function expandMap () {
+  console.log("expand map");
+    $("#map-wraper").toggleClass("wraper-expanded");
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(new google.maps.LatLng(40.641542, -73.936557));
+  };
+
+
   function displaySection(new_section_id) {
     var new_section = $("#" + new_section_id);
     var cur_section = $(".focus"); // undefined, about, contact, location, hours
@@ -162,7 +179,7 @@
         map.setCenter(new google.maps.LatLng(40.641542, -73.936557));
       }, 10);
     }
-  }
+  };
 </script>
 </body>
 </html>
