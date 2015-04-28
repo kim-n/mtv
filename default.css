@@ -11,22 +11,20 @@ p, a {
 }
 
 body {
-  line-height: 1;
-}
-
-body {
-  font-size: 20px;
-  height: 100%;
-  margin: 0;
-  width: 100%;
-}
-
-body {
 	background: black;
 	background: url("bground.jpg");
 	background-size: cover;
 	color: white;
   font-family:  'Iceland', Verdana, sans-serif;
+  font-size: 20px;
+  height: 100%;
+  line-height: 1;
+  margin: 0;
+  width: 100%;
+}
+
+h1 {
+  font-family: 'Iceland', sans-serif;
 }
 
 #main {
@@ -57,18 +55,6 @@ body {
 #site-name {
   font-family: 'Trade Winds', sans-serif;
 	font-size: 60px;
-}
-
-#right {
-
-}
-
-h1 {
-  font-family: 'Iceland', sans-serif;
-}
-
-.btn {
-
 }
 
 button {
@@ -209,7 +195,7 @@ section  {
 }
 
 .wraper-expanded  .close {
-  background: rgb(127, 65, 52);;
+  background: rgb(127, 65, 52);
   color: white;
   display: block;
   margin: auto;
