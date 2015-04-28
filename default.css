@@ -179,12 +179,15 @@ section  {
   padding-bottom: 10px;
 }
 
+.close {
+  display: none;
+}
+
 #map {
   color: black;
   height: 55%;
   line-height: 100%;
 }
-
 
 .wraper-expanded {
   background: rgba(0,0,0,0.7);
@@ -205,6 +208,19 @@ section  {
   border-radius: 7px;
 }
 
+.wraper-expanded  .close {
+  background: rgb(127, 65, 52);;
+  color: white;
+  display: block;
+  margin: auto;
+  margin-top: 15%;
+  padding: 0px 5px 0px 5px;
+  position: absolute;
+  right: 15%;
+  text-decoration: none;
+  top: -35px;
+}
+ 
 th {
   text-align: right;
   padding-right: 10px;
