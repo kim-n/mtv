@@ -21,6 +21,12 @@ $(".nav-btn").on("click", function (e) {
   var new_section = $("#" + new_section_id);
   var cur_section = $(".focus"); // undefined, about, contact, location, hours
   var cur_section_id = cur_section.attr('id');
+ 
+  // if click 'True Value,' follows link.
+  if(new_section_id === "truevalue") {
+    window.open("http://www.truevalue.com/");
+    return;
+  }
   
   // remove focus from current section shift-top css class if present
   // in preparation for adding focus to a new section
@@ -31,6 +37,9 @@ $(".nav-btn").on("click", function (e) {
     }
     cur_section.removeClass('focus').removeClass('shift-top');
   }
+  
+
+  
   // if cur_section_id is undefined, cur_section_id > new_section_id == false
   if (cur_section_id > new_section_id) {
     new_section.addClass('shift-top');
@@ -41,7 +50,7 @@ $(".nav-btn").on("click", function (e) {
     new_section.addClass('focus');
   }, 10);
   // fix: when google map changes size, doesn't automatically refocus center
-  if (new_section_id == "location"){
+  if (new_section_id == "contact"){
     // wait 10 milliseconds to ensure section becomes in focus before map refresh
     setTimeout(function(){
       google.maps.event.trigger(MTV.map, "resize");
