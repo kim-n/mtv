@@ -21,35 +21,49 @@
       
       // global so that it can be accessed and refreshed when location section loads
       map = new google.maps.Map(mapCanvas, mapOptions);
-
-      var marker = new google.maps.Marker({
+   
+      var styles = [{ "featureType" :"landscape",
+                "elementType" :"geometry.fill",
+                "stylers"     :[{"color":"#d3d3d3"}]},
+              { "featureType" :"landscape",
+                "elementType" :"geometry.stroke",
+                "stylers"     :[{"color":"#ffffff"}]},
+              { "featureType" :"poi",
+                "elementType" :"labels.icon",
+                "stylers"     :[{"saturation":-96}]}
+              ];
+      map.setOptions({styles: styles});
+      
+      var contentString = "<h1>Murry's True Value Hardware</h1>" +
+      '<p>4214 Avenue D</p>' +
+      '<p>Brooklyn, NY 11203</p>';
+      infoWindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+     
+      marker = new google.maps.Marker({
         position: map.getCenter(),
         icon: {
           path: google.maps.SymbolPath.CIRCLE,
           strokeColor: '#FF0000',
-          strokeOpacity: 1,
-          strokeWeight: 20,
+          strokeOpacity: 0.5,
+          strokeWeight: 30,
           fillColor: 'black',            
-          fillOpacity: 1,
-          scale: 4
+          fillOpacity: 0.5,
+          scale: 3
         },
         map: map
       });
+      // Displays infoWindow whem marker is clicked
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.open(map,marker);
+      });
+      // Shows infoWindow when map initialized
+      infoWindow.open(map,marker);
 
-      var styles = [{ "featureType" :"landscape",
-                      "elementType" :"geometry.fill",
-                      "stylers"     :[{"color":"#d3d3d3"}]},
-                    { "featureType" :"landscape",
-                      "elementType" :"geometry.stroke",
-                      "stylers"     :[{"color":"#ffffff"}]},
-                    { "featureType" :"poi",
-                      "elementType" :"labels.icon",
-                      "stylers"     :[{"saturation":-96}]}
-                    ];
-      
-      map.setOptions({styles: styles});
     }
-    google.maps.event.addDomListener(window, 'load', initialize);    
+    google.maps.event.addDomListener(window, 'load', initialize); 
+    
   </script>
   
   <!-- CUSTOM FONTS [GOOGLE FONTS] -->
@@ -98,10 +112,6 @@
   		</section>
   		<section id="location" class="focus">
   			<h1>Visit Us</h1>
-  			<div class="section-content">
-  				<p>4214 Avenue D</p>
-  				<p>Brooklyn, NY 11203</p>
-  			</div>
         <div id="map-wraper" onclick="expandMap()">
         <p id="map"></p>
         </div>
@@ -132,9 +142,7 @@
 <!-- Zepto.js [JavaScript Library, jQuery alternative] -->
 <script src=zepto.min.js></script>
 <script>
-
-  $("#map").click(function(e) {
-    console.log("map clicked")
+  $("#map").on("click", function(e) {
     if ($("#map-wraper").hasClass("wraper-expanded")) {
       e.stopPropagation();
     }

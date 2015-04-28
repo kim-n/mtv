@@ -180,8 +180,11 @@ section  {
 }
 
 #map {
+  color: black;
   height: 55%;
+  line-height: 100%;
 }
+
 
 .wraper-expanded {
   background: rgba(0,0,0,0.7);
@@ -255,7 +258,7 @@ footer > a, #contact a {
     font-size: 45px;
   }
   
-  #about, #location {
+  #about {
     font-size: 14px;
   }
 }
